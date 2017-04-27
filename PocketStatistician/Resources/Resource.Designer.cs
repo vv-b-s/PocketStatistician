@@ -28,6 +28,22 @@ namespace PocketStatistician
 		{
 		}
 		
+		public partial class Array
+		{
+			
+			// aapt resource value: 0x7f050000
+			public const int anayisis_array = 2131034112;
+			
+			static Array()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Array()
+			{
+			}
+		}
+		
 		public partial class Attribute
 		{
 			
@@ -57,6 +73,49 @@ namespace PocketStatistician
 			}
 		}
 		
+		public partial class Id
+		{
+			
+			// aapt resource value: 0x7f060001
+			public const int analysisSwitch = 2131099649;
+			
+			// aapt resource value: 0x7f060008
+			public const int fieldsSize = 2131099656;
+			
+			// aapt resource value: 0x7f060009
+			public const int nextBT = 2131099657;
+			
+			// aapt resource value: 0x7f060002
+			public const int optionalQuestionLayout = 2131099650;
+			
+			// aapt resource value: 0x7f060004
+			public const int radioGroup1 = 2131099652;
+			
+			// aapt resource value: 0x7f060005
+			public const int rb1 = 2131099653;
+			
+			// aapt resource value: 0x7f060006
+			public const int rb2 = 2131099654;
+			
+			// aapt resource value: 0x7f060000
+			public const int textView1 = 2131099648;
+			
+			// aapt resource value: 0x7f060007
+			public const int textView2 = 2131099655;
+			
+			// aapt resource value: 0x7f060003
+			public const int textView3 = 2131099651;
+			
+			static Id()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Id()
+			{
+			}
+		}
+		
 		public partial class Layout
 		{
 			
@@ -81,6 +140,9 @@ namespace PocketStatistician
 			
 			// aapt resource value: 0x7f040000
 			public const int Hello = 2130968576;
+			
+			// aapt resource value: 0x7f040002
+			public const int analysis_prompt = 2130968578;
 			
 			static String()
 			{

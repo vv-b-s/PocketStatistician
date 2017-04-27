@@ -2,6 +2,64 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
+    <TextView
+        android:text="@string/analysis_prompt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:layout_marginTop="11.5dp" />
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/analysisSwitch"
+        android:prompt="@string/analysis_prompt" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/optionalQuestionLayout"
+        android:layout_marginTop="15.5dp">
+        <TextView
+            android:text="Does your exerpt have periods?"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView3" />
+        <RadioGroup
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioGroup1">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Yes"
+                android:id="@+id/rb1" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No"
+                android:id="@+id/rb2" />
+        </RadioGroup>
+    </LinearLayout>
+    <TextView
+        android:text="How many lines does your excerpt have?"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:layout_marginTop="11.0dp" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fieldsSize"
+        android:hint="Enter integers only." />
+    <Button
+        android:text="NEXT"
+        android:layout_width="126.0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/nextBT"
+        android:layout_marginLeft="220.5dp"
+        android:layout_marginTop="200.0dp" />
 </LinearLayout>

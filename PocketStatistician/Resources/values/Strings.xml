@@ -2,4 +2,9 @@
 <resources>
     <string name="Hello">Hello World, Click Me!</string>
     <string name="ApplicationName">PocketStatistician</string>
+  
+  <string name ="analysis_prompt">Choose the type of analysis you will work with</string>
+  <string-array name ="anayisis_array">
+    <item>One-dimentional analysis</item>
+  </string-array>
 </resources>
