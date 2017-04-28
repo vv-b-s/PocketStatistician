@@ -19,7 +19,7 @@ namespace PocketStatistician
     public class MainActivity : Activity
     {
         #region Global Controls Access
-        public static int spinnerPos = 0;
+        public static int SpinnerPos = 0;
         #endregion
         protected override void OnCreate(Bundle bundle)
         {
@@ -40,12 +40,23 @@ namespace PocketStatistician
             #endregion
 
             #region Declarations and predefinements
-            optionalQuestionLayout.Visibility = spinnerPos==0? ViewStates.Visible:ViewStates.Invisible;
+            optionalQuestionLayout.Visibility = SpinnerPos==0? ViewStates.Visible:ViewStates.Invisible;
+            nextBT.Enabled = false;
             #endregion
 
             #region Events
             ActivateSpinner(analysisSwitch, Resource.Array.anayisis_array);
 
+            fieldsSize.TextChanged += delegate
+              { 
+                      nextBT.Enabled = fieldsSize.Text != "" && int.TryParse(fieldsSize.Text, out ExcerptFieldsActivity.NumberOfFields) ? true : false;
+              };
+
+            nextBT.Click += delegate
+              {
+                  var intent = new Intent(this, typeof(ExcerptFieldsActivity));
+                  StartActivity(intent);
+              };
             #endregion
         }
 
@@ -63,7 +74,7 @@ namespace PocketStatistician
         private void spinner_ItemSelected (object sender, AdapterView.ItemSelectedEventArgs e)
         {
             Spinner spinner = (Spinner)sender;
-            spinnerPos = e.Position;
+            SpinnerPos = e.Position;
         }
         #endregion
 
