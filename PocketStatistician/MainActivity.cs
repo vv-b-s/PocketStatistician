@@ -19,6 +19,8 @@ namespace PocketStatistician
     public class MainActivity : Activity
     {
         #region Global Controls Access
+        public enum AnalysisType { OneDA, RegrCorA };
+        public static bool hasPeriods;
         public static int SpinnerPos = 0;
         #endregion
         protected override void OnCreate(Bundle bundle)
@@ -46,14 +48,21 @@ namespace PocketStatistician
 
             #region Events
             ActivateSpinner(analysisSwitch, Resource.Array.anayisis_array);
+            analysisSwitch.ItemSelected += delegate
+              {
+                  optionalQuestionLayout.Visibility = SpinnerPos == (int)AnalysisType.OneDA ? ViewStates.Visible : ViewStates.Invisible;
+              };
 
             fieldsSize.TextChanged += delegate
               { 
-                      nextBT.Enabled = fieldsSize.Text != "" && int.TryParse(fieldsSize.Text, out ExcerptFieldsActivity.NumberOfFields) ? true : false;
+                      nextBT.Enabled = fieldsSize.Text != "" &&
+                      int.TryParse(fieldsSize.Text, out ExcerptFieldsActivity.NumberOfFields)&&
+                      !fieldsSize.Text.Contains("-") ? true : false;
               };
 
             nextBT.Click += delegate
               {
+                  hasPeriods = rb[0].Checked;
                   var intent = new Intent(this, typeof(ExcerptFieldsActivity));
                   StartActivity(intent);
               };
@@ -76,6 +85,7 @@ namespace PocketStatistician
             Spinner spinner = (Spinner)sender;
             SpinnerPos = e.Position;
         }
+
         #endregion
 
         #endregion
