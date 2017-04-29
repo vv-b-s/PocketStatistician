@@ -79,9 +79,6 @@ namespace PocketStatistician
 			// aapt resource value: 0x7f060004
 			public const int analysisSwitch = 2131099652;
 			
-			// aapt resource value: 0x7f060003
-			public const int button1 = 2131099651;
-			
 			// aapt resource value: 0x7f060002
 			public const int fieldsLayout = 2131099650;
 			
@@ -93,6 +90,9 @@ namespace PocketStatistician
 			
 			// aapt resource value: 0x7f060005
 			public const int optionalQuestionLayout = 2131099653;
+			
+			// aapt resource value: 0x7f060003
+			public const int procDataBT = 2131099651;
 			
 			// aapt resource value: 0x7f060007
 			public const int radioGroup1 = 2131099655;
@@ -133,6 +133,9 @@ namespace PocketStatistician
 			
 			// aapt resource value: 0x7f030001
 			public const int Main = 2130903041;
+			
+			// aapt resource value: 0x7f030002
+			public const int ResultLayout = 2130903042;
 			
 			static Layout()
 			{

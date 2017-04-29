@@ -30,9 +30,9 @@
             android:scrollbarAlwaysDrawVerticalTrack="true" />
     </ScrollView>
     <Button
-        android:text="Button"
+        android:text="Process data"
         android:layout_width="126.0dp"
         android:layout_height="wrap_content"
-        android:id="@+id/button1"
+        android:id="@+id/procDataBT"
         android:layout_marginLeft="220.5dp" />
 </LinearLayout>
