@@ -19,7 +19,12 @@ namespace PocketStatistician
         {
             base.OnCreate(savedInstanceState);
 
-            ActionBar.NavigationMode = ActionBarNavigationMode.Tabs;    // http://stackoverflow.com/questions/36499104/how-to-create-action-bar-tab-on-xamarin-android
+            SetContentView(Resource.Layout.ResultLayout);
+
+            FragmentTransaction transaction = FragmentManager.BeginTransaction();
+            SlidingTabsFragment fragment = new SlidingTabsFragment();
+            transaction.Replace(Resource.Id.sample_content_fragment, fragment);
+            transaction.Commit();
         }
     }
 }
