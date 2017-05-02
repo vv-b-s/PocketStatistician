@@ -1,3 +1,5 @@
+/* Xamarin Android Tutorial 11 Sliding Tab Layout - https://www.youtube.com/watch?v=M8OURJQOcoM */
+
 using System;
 using System.Collections.Generic;
 using System.Linq;

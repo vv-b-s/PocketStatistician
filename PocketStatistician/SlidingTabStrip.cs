@@ -1,3 +1,5 @@
+/* Xamarin Android Tutorial 10 Sliding Tab Interface - https://www.youtube.com/watch?v=0Rr0ZCvX_Zs */
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
