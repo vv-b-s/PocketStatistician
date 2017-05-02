@@ -55,21 +55,26 @@ namespace PocketStatistician
                 return view == obj;
             }
 
+            #region Display layouts from tabs
             public override Java.Lang.Object InstantiateItem(ViewGroup container, int position)
             {
                 View view = LayoutInflater.From(container.Context).Inflate(Resource.Layout.pager_item, container, false);
                 container.AddView(view);
                 var linLay = view.FindViewById<LinearLayout>(Resource.Id.linLay);
 
-                TextView simpleText = new TextView(linLay.Context);
-
-                simpleText.Text = "Tabs work perfectly as expected.";
-
-                linLay.AddView(simpleText);
-                
+                switch(position)
+                {
+                    case 0:
+                        ResultActivity.ModifyDataTab(linLay); break;
+                    case 1:
+                        ResultActivity.ModifyTableTab(linLay); break;
+                    case 2:
+                        ResultActivity.ModifyGraphTab(linLay); break;
+                }           
 
                 return view;
             }
+            #endregion
 
             public string GetHeaderTitle(int position)
             {
