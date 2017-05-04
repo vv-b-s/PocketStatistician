@@ -26,13 +26,54 @@ namespace PocketStatistician
 		
 		public static void UpdateIdValues()
 		{
+			global::Syncfusion.Data.Resource.String.library_name = global::PocketStatistician.Resource.String.library_name;
+			global::Syncfusion.SfDataGrid.Android.Resource.Drawable.Ascending = global::PocketStatistician.Resource.Drawable.Ascending;
+			global::Syncfusion.SfDataGrid.Android.Resource.Drawable.Descending = global::PocketStatistician.Resource.Drawable.Descending;
+			global::Syncfusion.SfDataGrid.Android.Resource.Drawable.DragDown = global::PocketStatistician.Resource.Drawable.DragDown;
+			global::Syncfusion.SfDataGrid.Android.Resource.Drawable.DragUp = global::PocketStatistician.Resource.Drawable.DragUp;
+			global::Syncfusion.SfDataGrid.Android.Resource.Drawable.error2 = global::PocketStatistician.Resource.Drawable.error2;
+			global::Syncfusion.SfDataGrid.Android.Resource.Drawable.FirstPageIcon = global::PocketStatistician.Resource.Drawable.FirstPageIcon;
+			global::Syncfusion.SfDataGrid.Android.Resource.Drawable.GroupCollapse = global::PocketStatistician.Resource.Drawable.GroupCollapse;
+			global::Syncfusion.SfDataGrid.Android.Resource.Drawable.GroupExpander = global::PocketStatistician.Resource.Drawable.GroupExpander;
+			global::Syncfusion.SfDataGrid.Android.Resource.Drawable.LastPageIcon = global::PocketStatistician.Resource.Drawable.LastPageIcon;
+			global::Syncfusion.SfDataGrid.Android.Resource.Drawable.NextPageIcon = global::PocketStatistician.Resource.Drawable.NextPageIcon;
+			global::Syncfusion.SfDataGrid.Android.Resource.Drawable.PrevPageIcon = global::PocketStatistician.Resource.Drawable.PrevPageIcon;
+			global::Syncfusion.SfDataGrid.Android.Resource.Drawable.Sort = global::PocketStatistician.Resource.Drawable.Sort;
+			global::Syncfusion.SfDataGrid.Android.Resource.Drawable.SortDescending = global::PocketStatistician.Resource.Drawable.SortDescending;
+			global::Syncfusion.SfDataGrid.Android.Resource.Layout.ScrollViewer = global::PocketStatistician.Resource.Layout.ScrollViewer;
+			global::Syncfusion.SfDataGrid.Android.Resource.String.library_name = global::PocketStatistician.Resource.String.library_name;
+		}
+		
+		public partial class Animation
+		{
+			
+			// aapt resource value: 0x7f040000
+			public const int fadein = 2130968576;
+			
+			// aapt resource value: 0x7f040001
+			public const int fadeout = 2130968577;
+			
+			// aapt resource value: 0x7f040002
+			public const int scale_in = 2130968578;
+			
+			// aapt resource value: 0x7f040003
+			public const int scale_out = 2130968579;
+			
+			static Animation()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Animation()
+			{
+			}
 		}
 		
 		public partial class Array
 		{
 			
-			// aapt resource value: 0x7f050000
-			public const int anayisis_array = 2131034112;
+			// aapt resource value: 0x7f060000
+			public const int anayisis_array = 2131099648;
 			
 			static Array()
 			{
@@ -61,7 +102,46 @@ namespace PocketStatistician
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int Icon = 2130837504;
+			public const int Ascending = 2130837504;
+			
+			// aapt resource value: 0x7f020001
+			public const int Descending = 2130837505;
+			
+			// aapt resource value: 0x7f020002
+			public const int DragDown = 2130837506;
+			
+			// aapt resource value: 0x7f020003
+			public const int DragUp = 2130837507;
+			
+			// aapt resource value: 0x7f020004
+			public const int error2 = 2130837508;
+			
+			// aapt resource value: 0x7f020005
+			public const int FirstPageIcon = 2130837509;
+			
+			// aapt resource value: 0x7f020006
+			public const int GroupCollapse = 2130837510;
+			
+			// aapt resource value: 0x7f020007
+			public const int GroupExpander = 2130837511;
+			
+			// aapt resource value: 0x7f020008
+			public const int Icon = 2130837512;
+			
+			// aapt resource value: 0x7f020009
+			public const int LastPageIcon = 2130837513;
+			
+			// aapt resource value: 0x7f02000a
+			public const int NextPageIcon = 2130837514;
+			
+			// aapt resource value: 0x7f02000b
+			public const int PrevPageIcon = 2130837515;
+			
+			// aapt resource value: 0x7f02000c
+			public const int Sort = 2130837516;
+			
+			// aapt resource value: 0x7f02000d
+			public const int SortDescending = 2130837517;
 			
 			static Drawable()
 			{
@@ -76,59 +156,119 @@ namespace PocketStatistician
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f060006
-			public const int analysisSwitch = 2131099654;
+			// aapt resource value: 0x7f070015
+			public const int analysisSwitch = 2131165205;
 			
-			// aapt resource value: 0x7f060002
-			public const int fieldsLayout = 2131099650;
+			// aapt resource value: 0x7f070008
+			public const int axisLayout = 2131165192;
 			
-			// aapt resource value: 0x7f06000d
-			public const int fieldsSize = 2131099661;
+			// aapt resource value: 0x7f070020
+			public const int bottom_labels = 2131165216;
 			
-			// aapt resource value: 0x7f06000f
-			public const int linLay = 2131099663;
+			// aapt resource value: 0x7f070002
+			public const int chartAreaLayout = 2131165186;
 			
-			// aapt resource value: 0x7f06000e
-			public const int nextBT = 2131099662;
+			// aapt resource value: 0x7f070001
+			public const int chartTitle = 2131165185;
 			
-			// aapt resource value: 0x7f060007
-			public const int optionalQuestionLayout = 2131099655;
+			// aapt resource value: 0x7f070021
+			public const int content = 2131165217;
 			
-			// aapt resource value: 0x7f060003
-			public const int procDataBT = 2131099651;
+			// aapt resource value: 0x7f070006
+			public const int dataMarkerLayout = 2131165190;
 			
-			// aapt resource value: 0x7f060009
-			public const int radioGroup1 = 2131099657;
+			// aapt resource value: 0x7f070011
+			public const int fieldsLayout = 2131165201;
 			
-			// aapt resource value: 0x7f06000a
-			public const int rb1 = 2131099658;
+			// aapt resource value: 0x7f07001c
+			public const int fieldsSize = 2131165212;
 			
-			// aapt resource value: 0x7f06000b
-			public const int rb2 = 2131099659;
+			// aapt resource value: 0x7f070003
+			public const int gridLineLayout = 2131165187;
 			
-			// aapt resource value: 0x7f060011
-			public const int sample_content_fragment = 2131099665;
+			// aapt resource value: 0x7f070022
+			public const int gridLinesLayout = 2131165218;
 			
-			// aapt resource value: 0x7f060010
-			public const int sample_main_layout = 2131099664;
+			// aapt resource value: 0x7f07000d
+			public const int iconView = 2131165197;
 			
-			// aapt resource value: 0x7f060001
-			public const int scrollView1 = 2131099649;
+			// aapt resource value: 0x7f07000e
+			public const int label = 2131165198;
 			
-			// aapt resource value: 0x7f060004
-			public const int sliding_tabs = 2131099652;
+			// aapt resource value: 0x7f07000a
+			public const int legendHeader = 2131165194;
 			
-			// aapt resource value: 0x7f060000
-			public const int textView1 = 2131099648;
+			// aapt resource value: 0x7f07000c
+			public const int legendItemsLayout = 2131165196;
 			
-			// aapt resource value: 0x7f06000c
-			public const int textView2 = 2131099660;
+			// aapt resource value: 0x7f07000b
+			public const int legendScrollView = 2131165195;
 			
-			// aapt resource value: 0x7f060008
-			public const int textView3 = 2131099656;
+			// aapt resource value: 0x7f070009
+			public const int legendViewGroup = 2131165193;
 			
-			// aapt resource value: 0x7f060005
-			public const int viewpager = 2131099653;
+			// aapt resource value: 0x7f07001e
+			public const int linLay = 2131165214;
+			
+			// aapt resource value: 0x7f07001d
+			public const int nextBT = 2131165213;
+			
+			// aapt resource value: 0x7f070016
+			public const int optionalQuestionLayout = 2131165206;
+			
+			// aapt resource value: 0x7f070012
+			public const int procDataBT = 2131165202;
+			
+			// aapt resource value: 0x7f070018
+			public const int radioGroup1 = 2131165208;
+			
+			// aapt resource value: 0x7f070019
+			public const int rb1 = 2131165209;
+			
+			// aapt resource value: 0x7f07001a
+			public const int rb2 = 2131165210;
+			
+			// aapt resource value: 0x7f070000
+			public const int rootLayout = 2131165184;
+			
+			// aapt resource value: 0x7f070025
+			public const int sample_content_fragment = 2131165221;
+			
+			// aapt resource value: 0x7f070024
+			public const int sample_main_layout = 2131165220;
+			
+			// aapt resource value: 0x7f070010
+			public const int scrollView1 = 2131165200;
+			
+			// aapt resource value: 0x7f070005
+			public const int seriesLayout = 2131165189;
+			
+			// aapt resource value: 0x7f070013
+			public const int sliding_tabs = 2131165203;
+			
+			// aapt resource value: 0x7f070004
+			public const int stripLinesLayout = 2131165188;
+			
+			// aapt resource value: 0x7f070007
+			public const int technicalIndicatorLayout = 2131165191;
+			
+			// aapt resource value: 0x7f07000f
+			public const int textView1 = 2131165199;
+			
+			// aapt resource value: 0x7f07001b
+			public const int textView2 = 2131165211;
+			
+			// aapt resource value: 0x7f070017
+			public const int textView3 = 2131165207;
+			
+			// aapt resource value: 0x7f070023
+			public const int thumbLayout = 2131165219;
+			
+			// aapt resource value: 0x7f07001f
+			public const int top_labels = 2131165215;
+			
+			// aapt resource value: 0x7f070014
+			public const int viewpager = 2131165204;
 			
 			static Id()
 			{
@@ -144,19 +284,34 @@ namespace PocketStatistician
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int ExcerptFieldsLayout = 2130903040;
+			public const int chart_layout = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int fragment_sample = 2130903041;
+			public const int chart_legend = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int Main = 2130903042;
+			public const int chart_legend_item = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int pager_item = 2130903043;
+			public const int ExcerptFieldsLayout = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int ResultLayout = 2130903044;
+			public const int fragment_sample = 2130903044;
+			
+			// aapt resource value: 0x7f030005
+			public const int Main = 2130903045;
+			
+			// aapt resource value: 0x7f030006
+			public const int pager_item = 2130903046;
+			
+			// aapt resource value: 0x7f030007
+			public const int range_navigator_layout = 2130903047;
+			
+			// aapt resource value: 0x7f030008
+			public const int ResultLayout = 2130903048;
+			
+			// aapt resource value: 0x7f030009
+			public const int ScrollViewer = 2130903049;
 			
 			static Layout()
 			{
@@ -171,14 +326,41 @@ namespace PocketStatistician
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f040001
-			public const int ApplicationName = 2130968577;
+			// aapt resource value: 0x7f05000a
+			public const int ApplicationName = 2131034122;
 			
-			// aapt resource value: 0x7f040000
-			public const int Hello = 2130968576;
+			// aapt resource value: 0x7f050009
+			public const int Hello = 2131034121;
 			
-			// aapt resource value: 0x7f040002
-			public const int analysis_prompt = 2130968578;
+			// aapt resource value: 0x7f05000b
+			public const int analysis_prompt = 2131034123;
+			
+			// aapt resource value: 0x7f050000
+			public const int library_name = 2131034112;
+			
+			// aapt resource value: 0x7f050001
+			public const int q = 2131034113;
+			
+			// aapt resource value: 0x7f050002
+			public const int quarter = 2131034114;
+			
+			// aapt resource value: 0x7f050003
+			public const int sfchart_close_label = 2131034115;
+			
+			// aapt resource value: 0x7f050004
+			public const int sfchart_high_label = 2131034116;
+			
+			// aapt resource value: 0x7f050005
+			public const int sfchart_low_label = 2131034117;
+			
+			// aapt resource value: 0x7f050006
+			public const int sfchart_open_label = 2131034118;
+			
+			// aapt resource value: 0x7f050007
+			public const int w = 2131034119;
+			
+			// aapt resource value: 0x7f050008
+			public const int week = 2131034120;
 			
 			static String()
 			{
