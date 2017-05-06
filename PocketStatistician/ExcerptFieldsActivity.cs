@@ -16,6 +16,9 @@ namespace PocketStatistician
     public class ExcerptFieldsActivity : Activity
     {
         public static int NumberOfFields;
+        public static double[][] intervals;
+        public static double[] Xi, Yi;
+        private bool continuable = true;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -29,14 +32,14 @@ namespace PocketStatistician
 
             #region Declarations and predefinitions
             EditText[] field = new EditText[NumberOfFields];
-            for(int i=0;i<field.Length;i++)
+            for (int i = 0; i < field.Length; i++)
             {
                 field[i] = new EditText(this);
                 fieldsLayout.AddView(field[i]);         //https://forums.xamarin.com/discussion/6029/how-to-create-ui-elements-dynamically 
 
-                if (MainActivity.SpinnerPos==(int)MainActivity.AnalysisType.OneDA)
+                if (MainActivity.SpinnerPos == (int)MainActivity.AnalysisType.OneDA)
                 {
-                    field[i].Hint = MainActivity.hasPeriods ? $"{i + 1}. X'~X\" Fi" :
+                    field[i].Hint = MainActivity.hasIntervals ? $"{i + 1}. X'~X\" Fi" :
                         $"{i + 1}. Xi Fi";
                 }
             }
@@ -47,8 +50,80 @@ namespace PocketStatistician
             #region Events
             procDataBT.Click += delegate
              {
-                 var intent = new Intent(this, typeof(ResultActivity));
-                 StartActivity(intent);
+                 #region Data assigning and format check
+                 string[] split = null;
+                 if (MainActivity.hasIntervals)                       // This is used only for the One-Dimention Analysis. Other analysis work with two parameters.
+                 {
+                     intervals = new double[2][];
+                     intervals[0] = new double[field.Length];
+                     intervals[1] = new double[field.Length];
+
+                     split = new string[3];
+                     Yi = new double[field.Length];
+                 }
+                 else
+                 {
+                     split = new string[2];
+                     Xi = new double[field.Length];
+                     Yi = new double[field.Length];
+                 }
+
+                 for (int i = 0; i < field.Length; i++)
+                 {
+                     if (MainActivity.hasIntervals && MainActivity.SpinnerPos == (int)MainActivity.AnalysisType.OneDA)
+                     {
+                         continuable = field[i].Text.Contains("~") && field[i].Text.Split().Length == 2;         // checking if the format is correct
+                         if (!continuable)
+                             break;
+
+                         string[] twoStrings = field[i].Text.Split();
+                         split[0] = twoStrings[0].Split('~')[0];
+                         split[1] = twoStrings[0].Split('~')[1];
+                         split[2] = twoStrings[1];
+
+                         continuable = double.TryParse(split[0], out intervals[0][i]) &&
+                         double.TryParse(split[1], out intervals[1][i]) &&
+                         double.TryParse(split[2], out Yi[i]);
+                         if (!continuable)
+                             break;
+                     }
+                     else if (!MainActivity.hasIntervals && MainActivity.SpinnerPos == (int)MainActivity.AnalysisType.OneDA)
+                     {
+                         continuable = field[i].Text.Split().Length == 2;         // checking if the format is correct
+                         if (!continuable)
+                             break;
+
+                         split[0] = field[i].Text.Split()[0];
+                         split[1] = field[i].Text.Split()[1];
+
+                         continuable = double.TryParse(split[0], out Xi[i]) && double.TryParse(split[1], out Yi[i]);
+                         if (!continuable)
+                             break;
+                     }
+
+                 }
+
+                #endregion
+
+                 if(!continuable)
+                 {
+                     ShowDialog("Your data is wrongly formated.\nPlease check and try again.");
+                     return;
+                 }
+                 else
+                 {
+                     switch(MainActivity.SpinnerPos)
+                     {
+                         case (int)MainActivity.AnalysisType.OneDA:
+                             ResultActivity.ODA = MainActivity.hasIntervals ?
+                             new Analizers.One_dim_analysis(field.Length, intervals[0], intervals[1], Yi) :
+                             new Analizers.One_dim_analysis(field.Length, Xi, Yi);
+                             break;
+                     }
+
+                     var intent = new Intent(this, typeof(ResultActivity));
+                     StartActivity(intent);
+                 } 
              };
             #endregion
         }

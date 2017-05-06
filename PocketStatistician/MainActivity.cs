@@ -20,7 +20,7 @@ namespace PocketStatistician
     {
         #region Global Controls Access
         public enum AnalysisType { OneDA, RegrCorA };
-        public static bool hasPeriods;
+        public static bool hasIntervals;
         public static int SpinnerPos = 0;
         #endregion
         protected override void OnCreate(Bundle bundle)
@@ -57,12 +57,13 @@ namespace PocketStatistician
               { 
                       nextBT.Enabled = fieldsSize.Text != "" &&
                       int.TryParse(fieldsSize.Text, out ExcerptFieldsActivity.NumberOfFields)&&
-                      !fieldsSize.Text.Contains("-") ? true : false;
+                      !fieldsSize.Text.Contains("-")&&
+                      ExcerptFieldsActivity.NumberOfFields!=0 ? true : false;
               };
 
             nextBT.Click += delegate
               {
-                  hasPeriods = rb[0].Checked;
+                  hasIntervals = rb[0].Checked;
                   var intent = new Intent(this, typeof(ExcerptFieldsActivity));
                   StartActivity(intent);
               };

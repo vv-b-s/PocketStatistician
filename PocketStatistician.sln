@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PocketStatistician", "PocketStatistician\PocketStatistician.csproj", "{CAECD451-6E89-426F-8523-CA7042865C63}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Analysers", "Analysers\Analysers.csproj", "{AD7F58F5-58A2-4C0B-AFE6-BFD68E2040C0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Analyzers", "Analysers\Analyzers.csproj", "{AD7F58F5-58A2-4C0B-AFE6-BFD68E2040C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
