@@ -38,10 +38,10 @@ namespace PocketStatistician
                 fieldsLayout.AddView(field[i]);         //https://forums.xamarin.com/discussion/6029/how-to-create-ui-elements-dynamically 
 
                 if (MainActivity.SpinnerPos == (int)MainActivity.AnalysisType.OneDA)
-                {
                     field[i].Hint = MainActivity.hasIntervals ? $"{i + 1}. X'~X\" Fi" :
                         $"{i + 1}. Xi Fi";
-                }
+                else
+                    field[i].Hint = $"{i + 1}. Xi Yi";
             }
 
             var procDataBT = FindViewById<Button>(Resource.Id.procDataBT);
@@ -52,7 +52,7 @@ namespace PocketStatistician
              {
                  #region Data assigning and format check
                  string[] split = null;
-                 if (MainActivity.hasIntervals)                       // This is used only for the One-Dimention Analysis. Other analysis work with two parameters.
+                 if (MainActivity.hasIntervals && MainActivity.SpinnerPos == (int)MainActivity.AnalysisType.OneDA)                       // This is used only for the One-Dimention Analysis. Other analysis work with two parameters.
                  {
                      intervals = new double[2][];
                      intervals[0] = new double[field.Length];
@@ -87,7 +87,7 @@ namespace PocketStatistician
                          if (!continuable)
                              break;
                      }
-                     else if (!MainActivity.hasIntervals && MainActivity.SpinnerPos == (int)MainActivity.AnalysisType.OneDA)
+                     else
                      {
                          continuable = field[i].Text.Split().Length == 2;         // checking if the format is correct
                          if (!continuable)
@@ -118,6 +118,10 @@ namespace PocketStatistician
                              ResultActivity.ODA = MainActivity.hasIntervals ?
                              new Analizers.One_dim_analysis(field.Length, intervals[0], intervals[1], Yi) :
                              new Analizers.One_dim_analysis(field.Length, Xi, Yi);
+                             break;
+
+                         case (int)MainActivity.AnalysisType.RegrCorA:
+                             ResultActivity.RA = new Analizers.Regression_analysis(field.Length, Xi, Yi);
                              break;
                      }
 

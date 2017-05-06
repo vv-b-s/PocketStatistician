@@ -15,28 +15,30 @@ namespace Analizers
         int lines = 2;
         public double[,] interval;
 
-        public double[] xI, fI, xIfI, comulatFreg, xIminusAvg, moduleXiminusAvg, squaredXiminusAvg, cubicXiminusAvg, quardicXiminusAvg;
-        public double xIfI_Sum = 0, fi_Sum = 0, moduleXiminusAvg_Sum = 0, squaredXiminusAvg_Sum, cubicXiminusAvg_Sum, quardicXiminusAvg_Sum;
+        double[] xI, fI, xIfI, comulatFreg, xIminusAvg, moduleXiminusAvg, squaredXiminusAvg, cubicXiminusAvg, quardicXiminusAvg;
+        double xIfI_Sum = 0, fi_Sum = 0, moduleXiminusAvg_Sum = 0, squaredXiminusAvg_Sum, cubicXiminusAvg_Sum, quardicXiminusAvg_Sum;
 
         #region Properties
-        public double average { set; get; }
-        public double mode { set; get; }
-        public double median { set; get; }
+        public double[] Xi => xI;
 
-        public double scope { set; get; }
+        public double average    { set; get; }
+        public double mode       { set; get; }
+        public double median     { set; get; }
+
+        public double scope        { set; get; }
         public double avgDeviation { set; get; }
-        public double stDeviation { set; get; }
+        public double stDeviation  { set; get; }
 
-        public double variation_scope { set; get; }
+        public double variation_scope        { set; get; }
         public double variation_avgDeviation { set; get; }
-        public double variation_stDeviation { set; get; }
+        public double variation_stDeviation  { set; get; }
 
-        public double uM3 { set; get; }
-        public double uM4 { set; get; }
-        public double asymmetry_m { set; get; }
-        public double asymmetry_p { set; get; }
-        public double asymmetry_u { set; get; }
-        public double excess { set; get; }
+        public double uM3           { set; get; }
+        public double uM4           { set; get; }
+        public double asymmetry_m   { set; get; }
+        public double asymmetry_p   { set; get; }
+        public double asymmetry_u   { set; get; }
+        public double excess        { set; get; }
 
         public string[,] TableData;
         #endregion
@@ -45,13 +47,13 @@ namespace Analizers
         void CalculateValues()
         {
             #region Values Assigning
-            xIfI = new double[lines - 2];
-            comulatFreg = new double[lines - 2];
-            xIminusAvg = new double[lines - 2];
-            moduleXiminusAvg = new double[lines - 2];
-            squaredXiminusAvg = new double[lines - 2];
-            cubicXiminusAvg = new double[lines - 2];
-            quardicXiminusAvg = new double[lines - 2];
+            xIfI                = new double[lines - 2];
+            comulatFreg         = new double[lines - 2];
+            xIminusAvg          = new double[lines - 2];
+            moduleXiminusAvg    = new double[lines - 2];
+            squaredXiminusAvg   = new double[lines - 2];
+            cubicXiminusAvg     = new double[lines - 2];
+            quardicXiminusAvg   = new double[lines - 2];
             #endregion
 
             #region Main Values
@@ -254,31 +256,30 @@ namespace Analizers
                     #region body
                     for (int i = 1; i < TableData.GetLength(0) - 1; i++)
                         for (int j = 0; j < TableData.GetLength(1); j++)
-                        {
                             switch (j)
                             {
                                 case 0:
-                                    TableData[i, j] = $"{i}"; break;
+                                    TableData[i, j] = $"{i}";                                     break;
                                 case 1:
-                                    TableData[i, j] = xI[i - 1].ToString(); break;
+                                    TableData[i, j] = xI[i - 1].ToString();                       break;
                                 case 2:
-                                    TableData[i, j] = fI[i - 1].ToString(); break;
+                                    TableData[i, j] = fI[i - 1].ToString();                       break;
                                 case 3:
-                                    TableData[i, j] = xIfI[i - 1].ToString(); break;
+                                    TableData[i, j] = xIfI[i - 1].ToString();                     break;
                                 case 4:
-                                    TableData[i, j] = comulatFreg[i - 1].ToString(); break;
+                                    TableData[i, j] = comulatFreg[i - 1].ToString();              break;
                                 case 5:
-                                    TableData[i, j] = xIminusAvg[i - 1].ToString(); break;
+                                    TableData[i, j] = xIminusAvg[i - 1].ToString();               break;
                                 case 6:
-                                    TableData[i, j] = moduleXiminusAvg[i - 1].ToString(); break;
+                                    TableData[i, j] = moduleXiminusAvg[i - 1].ToString();         break;
                                 case 7:
-                                    TableData[i, j] = squaredXiminusAvg[i - 1].ToString(); break;
+                                    TableData[i, j] = squaredXiminusAvg[i - 1].ToString();        break;
                                 case 8:
-                                    TableData[i, j] = cubicXiminusAvg[i - 1].ToString(); break;
+                                    TableData[i, j] = Round(cubicXiminusAvg[i - 1],3).ToString(); break;
                                 case 9:
-                                    TableData[i, j] = quardicXiminusAvg[i - 1].ToString(); break;
+                                    TableData[i, j] = quardicXiminusAvg[i - 1].ToString();        break;
                             }
-                        }
+                        
                     #endregion
 
                     #region legs

@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Android.Graphics;
 
 using Syncfusion.Linq;                              // https://components.xamarin.com/gettingstarted/syncfusionessentialstudio
 using Syncfusion.SfDataGrid;
@@ -16,7 +17,7 @@ using Syncfusion.GridCommon;
 using Com.Syncfusion.Charts;
 
 using Analizers;
-using Android.Graphics;
+
 
 namespace PocketStatistician
 {
@@ -26,6 +27,7 @@ namespace PocketStatistician
         private static SfDataGrid TableData;
         private static SfChart Graph;
         public static One_dim_analysis ODA;
+        public static Regression_analysis RA;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -44,7 +46,13 @@ namespace PocketStatistician
         {
             #region Modify the scrollview
             var scrollView = new ScrollView(layout.Context);
-            TextView output = new TextView(layout.Context) { Text = ODA.DisplayFullData() };
+            TextView output = new TextView(layout.Context);
+
+            if (MainActivity.SpinnerPos == (int)MainActivity.AnalysisType.OneDA)
+                output.Text = ODA.DisplayFullData();
+            else
+                output.Text = RA.DisplayFullData();
+
             scrollView.AddView(output);
 
             layout.AddView(scrollView);
@@ -58,14 +66,15 @@ namespace PocketStatistician
             TableData.GridStyle.AlternatingRowColor = Color.Aqua;
             TableData.AutoGenerateColumns = false;
 
-            ODA_GridRepository viewModel;
+            ODA_GridRepository oda_viewModel;
+            RA_GridRepository ra_viewModel;
 
             if(MainActivity.SpinnerPos==(int)MainActivity.AnalysisType.OneDA)
             {
-                viewModel = new ODA_GridRepository(MainActivity.hasIntervals, ODA.TableData);
+                oda_viewModel = new ODA_GridRepository(MainActivity.hasIntervals, ODA.TableData);
                 if (MainActivity.hasIntervals)
                 {
-                    TableData.ItemsSource = viewModel.oda_model_with_intervals;
+                    TableData.ItemsSource = oda_viewModel.oda_model_with_intervals;
 
                     #region Column Names
                     GridTextColumn[] columnName = new GridTextColumn[11];
@@ -111,7 +120,7 @@ namespace PocketStatistician
                 }
                 else
                 {
-                    TableData.ItemsSource = viewModel.oda_model_no_intervals;
+                    TableData.ItemsSource = oda_viewModel.oda_model_no_intervals;
 
                     #region Column Names
                     GridTextColumn[] columnName = new GridTextColumn[10];
@@ -153,8 +162,56 @@ namespace PocketStatistician
                     #endregion
                 }
             }
+            else if (MainActivity.SpinnerPos == (int)MainActivity.AnalysisType.RegrCorA)
+            {
+                ra_viewModel = new RA_GridRepository(RA.TableData);
 
-            layout.AddView(TableData);            
+                TableData.ItemsSource = ra_viewModel.ra_model;
+
+                #region Column Names
+                GridTextColumn[] columnName = new GridTextColumn[11];
+                for (int i = 0; i < columnName.Length; i++)
+                {
+                    columnName[i] = new GridTextColumn();
+                    TableData.Columns.Add(columnName[i]);
+                }
+
+                columnName[0].MappingName = "Nm";
+                columnName[0].HeaderText = $"{(char)8470}";
+
+                columnName[1].MappingName = "Xi";
+                columnName[1].HeaderText = "Xi";
+
+                columnName[2].MappingName = "Yi";
+                columnName[2].HeaderText = "Yi";
+
+                columnName[3].MappingName = "Xi_squared";
+                columnName[3].HeaderText = "Xi^2";
+
+                columnName[4].MappingName = "XiYi";
+                columnName[4].HeaderText = "XiYi";
+
+                columnName[5].MappingName = "Xi_m_Xavg_x_Yi_m_YAvg";
+                columnName[5].HeaderText = "(Xi-X)(Yi-Y)";
+
+                columnName[6].MappingName = "Xi_m_X_Avg_Squared";
+                columnName[6].HeaderText = "(Xi-X)^2";
+
+                columnName[7].MappingName = "Yi_m_Y_Avg_Squared";
+                columnName[7].HeaderText = "(Yi-Y)^2";
+
+                columnName[8].MappingName = "Y_lineal";
+                columnName[8].HeaderText = "Y^";
+
+                columnName[9].MappingName = "Yi_m_Lineal_Yi_Squared";
+                columnName[9].HeaderText = "(Yi-Y^)^2";
+
+                columnName[10].MappingName = "Lineal_Yi_m_Y_Avg_Squared";
+                columnName[10].HeaderText = "(Y^-Y)^2";
+                #endregion
+            }
+
+            layout.AddView(TableData);         
         }
 
         public static void ModifyGraphTab(LinearLayout layout)
@@ -174,16 +231,33 @@ namespace PocketStatistician
             #endregion
 
             #region Binding data with Graph
-            GraphModel model = new GraphModel(ExcerptFieldsActivity.Xi,ExcerptFieldsActivity.Yi);
-            SplineSeries graphLine = new SplineSeries()                         //https://help.syncfusion.com/xamarin-android/sfchart/getting-started
+            GraphModel model = MainActivity.hasIntervals&& MainActivity.SpinnerPos == (int)MainActivity.AnalysisType.OneDA ?
+                new GraphModel(ODA.Xi, ExcerptFieldsActivity.Yi)
+                : new GraphModel(ExcerptFieldsActivity.Xi,ExcerptFieldsActivity.Yi);
+            
+            if(MainActivity.SpinnerPos==(int)MainActivity.AnalysisType.OneDA)
             {
-                DataSource = model.Data,
-                Color = Color.AntiqueWhite
-            };
-            graphLine.DataMarker.ShowMarker = true;
-            graphLine.DataMarker.MarkerColor = Color.Turquoise;
+                SplineSeries graphLine = new SplineSeries()                         //https://help.syncfusion.com/xamarin-android/sfchart/getting-started
+                {
+                    DataSource = model.Data,
+                    Color = Color.AntiqueWhite
+                };
+                graphLine.DataMarker.ShowMarker = true;
+                graphLine.DataMarker.MarkerColor = Color.Turquoise;
+                Graph.Series.Add(graphLine);
+            }
+            else if(MainActivity.SpinnerPos == (int)MainActivity.AnalysisType.RegrCorA)
+            {
+                ScatterSeries graphLine = new ScatterSeries()
+                {
+                    DataSource = model.Data,
+                    Color = Color.DarkSeaGreen,
+                    ScatterHeight = 25,
+                    ScatterWidth = 25
+                };
+                Graph.Series.Add(graphLine);
+            }
 
-            Graph.Series.Add(graphLine);
             #endregion
             
             
