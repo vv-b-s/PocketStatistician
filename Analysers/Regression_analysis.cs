@@ -150,7 +150,7 @@ namespace Analizers
             TableData[lines - 1, 7] = Round(SUM_Yi_m_Y_Avg_Squared, 3).ToString();
             TableData[lines - 1, 8] = Round(SUM_Y_lineal, 3).ToString();
             TableData[lines - 1, 9] = Round(SUM_Yi_m_Lineal_Yi_Squared, 3).ToString();
-            TableData[lines - 1, 10] = Round(SUM_Yi_m_Y_Avg_Squared, 3).ToString();
+            TableData[lines - 1, 10] = Round(SUM_Lineal_Yi_m_Y_Avg_Squared, 3).ToString();
             #endregion
         }
 

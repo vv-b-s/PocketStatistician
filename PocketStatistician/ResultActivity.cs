@@ -109,13 +109,13 @@ namespace PocketStatistician
                     columnName[7].HeaderText = "|Xi-X|";
 
                     columnName[8].MappingName = "Squared_Xi_minus_Avg";
-                    columnName[8].HeaderText = "(Xi-X)^2";
+                    columnName[8].HeaderText = "(Xi-X)^2Fi";
 
                     columnName[9].MappingName = "Cubix_Xi_minus_Avg";
-                    columnName[9].HeaderText = "(Xi-X)^3";
+                    columnName[9].HeaderText = "(Xi-X)^3Fi";
 
                     columnName[10].MappingName = "Quadric_Xi_minus_Avg";
-                    columnName[10].HeaderText = "(Xi-X)^4";
+                    columnName[10].HeaderText = "(Xi-X)^4Fi";
                     #endregion
                 }
                 else
@@ -152,13 +152,13 @@ namespace PocketStatistician
                     columnName[6].HeaderText = "|Xi-X|";
 
                     columnName[7].MappingName = "Squared_Xi_minus_Avg";
-                    columnName[7].HeaderText = "(Xi-X)^2";
+                    columnName[7].HeaderText = "(Xi-X)^2Fi";
 
                     columnName[8].MappingName = "Cubix_Xi_minus_Avg";
-                    columnName[8].HeaderText = "(Xi-X)^3";
+                    columnName[8].HeaderText = "(Xi-X)^3Fi";
 
                     columnName[9].MappingName = "Quadric_Xi_minus_Avg";
-                    columnName[9].HeaderText = "(Xi-X)^4";
+                    columnName[9].HeaderText = "(Xi-X)^4Fi";
                     #endregion
                 }
             }
