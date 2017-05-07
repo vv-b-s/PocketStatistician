@@ -178,7 +178,9 @@ namespace Analizers
             $"Standard Deviation: {Round(Standard_dev, 3)}\n" +
             $"{(char)963}1: {Round(Dispersion_1, 3)}\n" +
             $"{(char)963}2: {Round(Dispersion_2, 3)}\n" +
-            $"Fem = {(char)963}1/{(char)963}2 = {Round(F_em, 3)}");
+            $"Fem = {(char)963}1/{(char)963}2 = {Round(F_em, 3)}\n\n" +
+            $"df1: p-1 = 1\n" +
+            $"df2: n-p = {lines-3}");
 
         public Regression_analysis(int lines, double[] Xi,double[] Yi)
         {
