@@ -46,6 +46,9 @@ namespace Analizers
         public double Corelation_P  { set; get; }
         public double Corelation_B  { set; get; }
         public double Standard_dev  { set; get; }
+        public double Dispersion_1  { set; get; }
+        public double Dispersion_2  { set; get; }
+        public double F_em          { set; get; }
 
         public string[,] TableData;
         #endregion
@@ -101,6 +104,9 @@ namespace Analizers
             Corelation_P = Sqrt(Determ_Coef);
             Corelation_B = SUM_Xi_m_Xavg_x_Yi_m_YAvg / Sqrt(SUM_Xi_m_X_Avg_Squared * SUM_Yi_m_Y_Avg_Squared);
             Standard_dev = Sqrt(SUM_Yi_m_Lineal_Yi_Squared / (lines - 3));
+            Dispersion_1 = SUM_Lineal_Yi_m_Y_Avg_Squared;
+            Dispersion_2 = SUM_Yi_m_Lineal_Yi_Squared / (lines - 3);
+            F_em = Dispersion_1 / Dispersion_2;
 
             SendToData();
         }
@@ -169,7 +175,10 @@ namespace Analizers
             $"Corelation_P: {Round(Corelation_P, 3)}\n" +
             $"Corelation_B: {Round(Corelation_B, 3)}\n\n" +
 
-            $"Standard Deviation: {Round(Standard_dev, 3)}");
+            $"Standard Deviation: {Round(Standard_dev, 3)}\n" +
+            $"{(char)963}1: {Round(Dispersion_1, 3)}\n" +
+            $"{(char)963}2: {Round(Dispersion_2, 3)}\n" +
+            $"Fem = {(char)963}1/{(char)963}2 = {Round(F_em, 3)}");
 
         public Regression_analysis(int lines, double[] Xi,double[] Yi)
         {
