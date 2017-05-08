@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Math;
+using MathNet.Numerics.Distributions;
 
 namespace Analizers
 {
@@ -49,6 +50,7 @@ namespace Analizers
         public double Dispersion_1  { set; get; }
         public double Dispersion_2  { set; get; }
         public double F_em          { set; get; }
+        public double[] F_t         { set; get; }
 
         public string[,] TableData;
         #endregion
@@ -107,6 +109,9 @@ namespace Analizers
             Dispersion_1 = SUM_Lineal_Yi_m_Y_Avg_Squared;
             Dispersion_2 = SUM_Yi_m_Lineal_Yi_Squared / (lines - 3);
             F_em = Dispersion_1 / Dispersion_2;
+            F_t = new double[2];
+            F_t[0] = FisherSnedecor.InvCDF(1, lines - 3, 0.95);
+            F_t[1] = FisherSnedecor.InvCDF(1, lines - 3, 0.99);
 
             SendToData();
         }
@@ -160,6 +165,31 @@ namespace Analizers
             #endregion
         }
 
+        private string GenerateConclusions()
+        {
+            string B1_Conclusion = $"The regression coefficient B1 shows that increasing Xi with 1 unit will increase Yi with {Round(B1, 2)} units.\n";
+            string Determination_Conclusion = $"The determination coefficient shows that {Round(Determ_Coef * 100)}% of the changes in Yi are due to the changes in Xi.\n";
+            string Indetermination_Conclusion = $"The indetermination coefficient shows that {Round(Indeterm_Coef * 100)}% of the changes in Yi are due to factors beyond the reach of this exerpt.\n";
+
+            string corelationSterngth;
+            if (Corelation_P <= 0.3)
+                corelationSterngth = "weak";
+            else if (Corelation_P > 0.3 && Corelation_P <= 0.5)
+                corelationSterngth = "moderate";
+            else if (Corelation_P > 0.5 && Corelation_P <= 0.7)
+                corelationSterngth = "considerable";
+            else if (Corelation_P > 0.7 && Corelation_P <= 0.9)
+                corelationSterngth = "strong";
+            else
+                corelationSterngth = "very strong";
+
+            string Corelation_Conclusion = $"Pierson and Brave's corelation coefficients show that the corelation is {corelationSterngth} and {(Corelation_B >= 0 ? "straightforward" : "reversed")}.\n";
+            string Adequacy = $"With risk of deviation {(char)945} = 0.05, it can be argued that the excerpt is {(F_t[0] >= F_em ? "inadequate" : "adequate")}.\n" +
+                $"With risk of deviation {(char)945} = 0.01, it can be argued that the excerpt is {(F_t[1] >= F_em ? "inadequate" : "adequate")}.\n";
+
+            return string.Concat("Conclusions:\n", B1_Conclusion, "\n", Determination_Conclusion, Indetermination_Conclusion, "\n", Corelation_Conclusion, "\n", Adequacy);
+        }
+
         #region Public Methods and constructors
         public string DisplayFullData() => string.Concat(
             $"X Average: {Round(Avg_X, 3)}\n" +
@@ -178,9 +208,13 @@ namespace Analizers
             $"Standard Deviation: {Round(Standard_dev, 3)}\n" +
             $"{(char)963}1: {Round(Dispersion_1, 3)}\n" +
             $"{(char)963}2: {Round(Dispersion_2, 3)}\n" +
-            $"Fem = {(char)963}1/{(char)963}2 = {Round(F_em, 3)}\n\n" +
+            $"Fem = {(char)963}1/{(char)963}2 = {Round(F_em, 3)}\n" +
+            $"Ft ({(char)945} = 0.05) = {Round(F_t[0],3)}\n" +
+            $"Ft ({(char)945} = 0.01) = {Round(F_t[1],3)}\n\n" +
+
             $"df1: p-1 = 1\n" +
-            $"df2: n-p = {lines-3}");
+            $"df2: n-p = {lines-3}\n\n",
+            GenerateConclusions());
 
         public Regression_analysis(int lines, double[] Xi,double[] Yi)
         {
