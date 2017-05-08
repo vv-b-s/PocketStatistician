@@ -54,7 +54,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/fieldsSize"
-        android:hint="Enter integers only." />
+        android:hint="Please enter only integers higher than 2." />
     <Button
         android:text="NEXT"
         android:layout_width="126.0dp"

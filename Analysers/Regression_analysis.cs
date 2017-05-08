@@ -111,7 +111,7 @@ namespace Analizers
             F_em = Dispersion_1 / Dispersion_2;
             F_t = new double[2];
             F_t[0] = FisherSnedecor.InvCDF(1, lines - 3, 0.95);
-            F_t[1] = FisherSnedecor.InvCDF(1, lines - 3, 0.99);
+            F_t[1] = (lines == 4) ? 4052 : FisherSnedecor.InvCDF(1, lines - 3, 0.99);
 
             SendToData();
         }

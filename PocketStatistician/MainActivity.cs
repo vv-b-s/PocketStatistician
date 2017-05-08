@@ -54,11 +54,11 @@ namespace PocketStatistician
               };
 
             fieldsSize.TextChanged += delegate
-              { 
-                      nextBT.Enabled = fieldsSize.Text != "" &&
-                      int.TryParse(fieldsSize.Text, out ExcerptFieldsActivity.NumberOfFields)&&
-                      !fieldsSize.Text.Contains("-")&&
-                      ExcerptFieldsActivity.NumberOfFields!=0 ? true : false;
+              {
+                  nextBT.Enabled = fieldsSize.Text != "" &&
+                  int.TryParse(fieldsSize.Text, out ExcerptFieldsActivity.NumberOfFields) &&
+                  !fieldsSize.Text.Contains("-") &&
+                  ExcerptFieldsActivity.NumberOfFields > 2 ? true : false;
               };
 
             nextBT.Click += delegate
