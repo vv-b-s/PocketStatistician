@@ -192,27 +192,27 @@ namespace Analizers
 
         #region Public Methods and constructors
         public string DisplayFullData() => string.Concat(
-            $"X Average: {Round(Avg_X, 3)}\n" +
-            $"Y Average: {Round(Avg_Y, 3)}\n\n" +
+            $"X Average: {Round(Avg_X, 3)}\n",
+            $"Y Average: {Round(Avg_Y, 3)}\n\n",
 
-            $"B0: {Round(B0, 3)}\n" +
-            $"B1: {Round(B1, 3)}\n" +
-            $"Lineal Y = {Round(B0, 3)}+ {Round(B1, 3)} × Xi\n\n" +
+            $"B0: {Round(B0, 3)}\n",
+            $"B1: {Round(B1, 3)}\n",
+            $"Lineal Y = {Round(B0, 3)}+ {Round(B1, 3)} × Xi\n\n",
 
-            $"Determination Coefficient: {Round(Determ_Coef, 3)}\n" +
-            $"Indetermination Coefficient: {Round(Indeterm_Coef, 3)}\n\n" +
+            $"Determination Coefficient: {Round(Determ_Coef, 3)}\n",
+            $"Indetermination Coefficient: {Round(Indeterm_Coef, 3)}\n\n",
 
-            $"Corelation_P: {Round(Corelation_P, 3)}\n" +
-            $"Corelation_B: {Round(Corelation_B, 3)}\n\n" +
+            $"Corelation_P: {Round(Corelation_P, 3)}\n",
+            $"Corelation_B: {Round(Corelation_B, 3)}\n\n",
 
-            $"Standard Deviation: {Round(Standard_dev, 3)}\n" +
-            $"{(char)963}1: {Round(Dispersion_1, 3)}\n" +
-            $"{(char)963}2: {Round(Dispersion_2, 3)}\n" +
-            $"Fem = {(char)963}1/{(char)963}2 = {Round(F_em, 3)}\n" +
-            $"Ft ({(char)945} = 0.05) = {Round(F_t[0],3)}\n" +
-            $"Ft ({(char)945} = 0.01) = {Round(F_t[1],3)}\n\n" +
+            $"Standard Deviation: {Round(Standard_dev, 3)}\n" ,
+            $"{(char)963}1: {Round(Dispersion_1, 3)}\n" ,
+            $"{(char)963}2: {Round(Dispersion_2, 3)}\n" ,
+            $"Fem = {(char)963}1/{(char)963}2 = {Round(F_em, 3)}\n" ,
+            $"Ft ({(char)945} = 0.05) = {Round(F_t[0],3)}\n" ,
+            $"Ft ({(char)945} = 0.01) = {Round(F_t[1],3)}\n\n" ,
 
-            $"df1: p-1 = 1\n" +
+            $"df1: p-1 = 1\n" ,
             $"df2: n-p = {lines-3}\n\n",
             GenerateConclusions());
 

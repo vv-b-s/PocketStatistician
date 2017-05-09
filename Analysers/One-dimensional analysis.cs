@@ -302,24 +302,24 @@ namespace Analizers
         #region Public methods and constructors
 
         public string DisplayFullData() => string.Concat(
-            $"Average: {average}\n" +
+            $"Average: {average}\n" ,
             $"Mode: {mode}\n" +
-            $"Median: {median}\n\n" +
+            $"Median: {median}\n\n" ,
 
-            $"Scope: {scope}\n" +
-            $"Average deviation: {avgDeviation}\n" +
-            $"Standart deviation: {stDeviation}\n\n" +
+            $"Scope: {scope}\n" ,
+            $"Average deviation: {avgDeviation}\n" ,
+            $"Standart deviation: {stDeviation}\n\n" ,
 
-            $"Scope variation: {variation_scope}%\n" +
-            $"Average Deviation variation {variation_avgDeviation}%\n" +
-            $"Standart Deviation variation: {variation_stDeviation}%\n\n" +
+            $"Scope variation: {variation_scope}%\n" ,
+            $"Average Deviation variation {variation_avgDeviation}%\n" ,
+            $"Standart Deviation variation: {variation_stDeviation}%\n\n" ,
 
-            $"uM3: {uM3}\n" +
-            $"uM4: {uM4}\n\n" +
+            $"uM3: {uM3}\n" ,
+            $"uM4: {uM4}\n\n" ,
 
-            $"Asymmetry_m: {asymmetry_m}\n" +
-            $"Asymmetry_p: {asymmetry_p}\n" +
-            $"Asymmetry_u: {asymmetry_u}\n" +
+            $"Asymmetry_m: {asymmetry_m}\n" ,
+            $"Asymmetry_p: {asymmetry_p}\n" ,
+            $"Asymmetry_u: {asymmetry_u}\n" ,
             $"Excess: {excess-3}");
 
         public One_dim_analysis(int lines, double[] xI, double[] fI)
