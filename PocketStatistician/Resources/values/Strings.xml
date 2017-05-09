@@ -5,7 +5,7 @@
   
   <string name ="analysis_prompt">Choose the type of analysis you will work with</string>
   <string-array name ="anayisis_array">
-    <item>One-dimentional analysis</item>
+    <item>One-dimensional analysis</item>
     <item>Regression and corelation analysis</item>
   </string-array>
 </resources>

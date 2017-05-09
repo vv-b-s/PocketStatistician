@@ -167,7 +167,7 @@ namespace Analizers
 
         private string GenerateConclusions()
         {
-            string B1_Conclusion = $"The regression coefficient B1 shows that increasing Xi with 1 unit will increase Yi with {Round(B1, 2)} units.\n";
+            string B1_Conclusion = $"The regression coefficient B1 shows that increasing Xi with 1 unit will {(B1 >= 0 ? "increase" : "decrease")} Yi with {Round(Abs(B1), 2)} units.\n";
             string Determination_Conclusion = $"The determination coefficient shows that {Round(Determ_Coef * 100)}% of the changes in Yi are due to the changes in Xi.\n";
             string Indetermination_Conclusion = $"The indetermination coefficient shows that {Round(Indeterm_Coef * 100)}% of the changes in Yi are due to factors beyond the reach of this exerpt.\n";
 

@@ -21,7 +21,7 @@
         android:id="@+id/optionalQuestionLayout"
         android:layout_marginTop="15.5dp">
         <TextView
-            android:text="Does your exerpt have periods?"
+            android:text="Does your execrpt have periods?"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textView3" />
