@@ -299,6 +299,27 @@ namespace Analizers
             }
         }
 
+        string GenerateConclusions()
+        {
+            string Asymmetry = $"Pierson's Asymmetry coefficient shows that the distribution has {WriteAsymmetryState(asymmetry_p)} view and {(Abs(asymmetry_p) < 1 ? "moderate" : "considerable")} state of asymmetry\n\n" +
+                $"Jul's Asymmetry coefficient shows that the distribution has {WriteAsymmetryState(asymmetry_u)} view and {(Abs(asymmetry_u) < 1 ? "moderate" : "considerable")} state of asymmetry\n\n" +
+                $"The Central Asymmetry coefficient shows that the distribution has {WriteAsymmetryState(asymmetry_m)} view and {(Abs(asymmetry_m) < 0.5 ? "moderate" : "considerable")} state of asymmetry\n";
+
+            string Excess = $"The excess in this distribution is {(excess-3 < 0 ? "flattened" : "convexed")}";
+
+            return string.Concat(Asymmetry, "\n", Excess);
+        }
+
+        string WriteAsymmetryState(double coef)
+        {
+            if (coef < 0)
+                return "left-handed asymmetrical";
+            else if (coef > 0)
+                return "right-handed asymmetrical";
+            else
+                return "symmetrical";
+        }
+
         #region Public methods and constructors
 
         public string DisplayFullData() => string.Concat(
@@ -320,7 +341,8 @@ namespace Analizers
             $"Asymmetry_m: {asymmetry_m}\n" ,
             $"Asymmetry_p: {asymmetry_p}\n" ,
             $"Asymmetry_u: {asymmetry_u}\n" ,
-            $"Excess: {excess-3}");
+            $"Excess: {excess-3}\n\n",
+            $"Conclusions:\n{GenerateConclusions()}");
 
         public One_dim_analysis(int lines, double[] xI, double[] fI)
         {
