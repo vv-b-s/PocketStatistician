@@ -151,7 +151,7 @@ namespace Analizers
             #endregion
 
             #region Legs
-            TableData[lines - 1, 0] = "Total";
+            TableData[lines - 1, 0] = $"{(char)931}";
             TableData[lines - 1, 1] = Round(SUM_X, 3).ToString();
             TableData[lines - 1, 2] = Round(SUM_Y, 3).ToString();
             TableData[lines - 1, 3] = Round(SUM_Xi_squared, 3).ToString();
@@ -192,12 +192,12 @@ namespace Analizers
 
         #region Public Methods and constructors
         public string DisplayFullData() => string.Concat(
-            $"X Average: {Round(Avg_X, 3)}\n",
-            $"Y Average: {Round(Avg_Y, 3)}\n\n",
+            $"{(char)88}{(char)772}: {Round(Avg_X, 3)}\n",
+            $"{(char)562}: {Round(Avg_Y, 3)}\n\n",
 
-            $"B0: {Round(B0, 3)}\n",
-            $"B1: {Round(B1, 3)}\n",
-            $"Lineal Y = {Round(B0, 3)} {(B1 >= 0 ? "+" : "-")} {Abs(Round(B1, 3))} × Xi\n\n",
+            $"b{(char)8320}: {Round(B0, 3)}\n",
+            $"b{(char)8321}: {Round(B1, 3)}\n",
+            $"{(char)374} = {Round(B0, 3)} {(B1 >= 0 ? "+" : "-")} {Abs(Round(B1, 3))}Xi\n\n",
 
             $"Determination Coefficient: {Round(Determ_Coef, 3)}\n",
             $"Indetermination Coefficient: {Round(Indeterm_Coef, 3)}\n\n",
@@ -206,14 +206,14 @@ namespace Analizers
             $"Corelation_B: {Round(Corelation_B, 3)}\n\n",
 
             $"Standard Deviation: {Round(Standard_dev, 3)}\n",
-            $"{(char)963}1: {Round(Dispersion_1, 3)}\n",
-            $"{(char)963}2: {Round(Dispersion_2, 3)}\n",
+            $"{(char)963}{(char)8321}: {Round(Dispersion_1, 3)}\n",
+            $"{(char)963}{(char)8322}: {Round(Dispersion_2, 3)}\n",
             $"Fem = {(char)963}1/{(char)963}2 = {Round(F_em, 3)}\n",
             $"Ft ({(char)945} = 0.05) = {Round(F_t[0], 3)}\n",
             $"Ft ({(char)945} = 0.01) = {Round(F_t[1], 3)}\n\n",
 
-            $"df1: p-1 = 1\n",
-            $"df2: n-p = {lines - 3}\n\n",
+            $"df{(char)8321}: p-1 = 1\n",
+            $"df{(char)8322}: n-p = {lines - 3}\n\n",
             GenerateConclusions());
 
         public Regression_analysis(int lines, double[] Xi,double[] Yi)

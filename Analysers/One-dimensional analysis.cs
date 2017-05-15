@@ -283,8 +283,8 @@ namespace Analizers
                     #endregion
 
                     #region legs
-                    TableData[lines - 1, 0] = "-";
-                    TableData[lines - 1, 1] = "Total";
+                    TableData[lines - 1, 0] = "{(char)931}";
+                    TableData[lines - 1, 1] = $"-";
                     TableData[lines - 1, 2] = $"{fi_Sum}";
                     TableData[lines - 1, 3] = $"{xIfI_Sum}";
                     TableData[lines - 1, 4] = "-";
@@ -323,7 +323,7 @@ namespace Analizers
         #region Public methods and constructors
 
         public string DisplayFullData() => string.Concat(
-            $"Average: {average}\n" ,
+            $"{(char)88}{(char)772}: {average}\n" ,
             $"Mode: {mode}\n" +
             $"Median: {median}\n\n" ,
 
@@ -335,8 +335,8 @@ namespace Analizers
             $"Average Deviation variation {variation_avgDeviation}%\n" ,
             $"Standart Deviation variation: {variation_stDeviation}%\n\n" ,
 
-            $"uM3: {uM3}\n" ,
-            $"uM4: {uM4}\n\n" ,
+            $"{(char)956}M{(char)8323}: {uM3}\n" ,
+            $"{(char)956}M{(char)8324}: {uM4}\n\n" ,
 
             $"Asymmetry_m: {asymmetry_m}\n" ,
             $"Asymmetry_p: {asymmetry_p}\n" ,

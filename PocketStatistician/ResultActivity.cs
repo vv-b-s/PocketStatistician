@@ -146,19 +146,19 @@ namespace PocketStatistician
                     columnName[4].HeaderText = "C";
 
                     columnName[5].MappingName = "Xi_minus_Avg";
-                    columnName[5].HeaderText = "Xi-X";
+                    columnName[5].HeaderText = $"Xi-{(char)88}{(char)772}";
 
                     columnName[6].MappingName = "Module_Xi_minus_Avg";
-                    columnName[6].HeaderText = "|Xi-X|";
+                    columnName[6].HeaderText = $"|Xi-{(char)88}{(char)772}|";
 
                     columnName[7].MappingName = "Squared_Xi_minus_Avg";
-                    columnName[7].HeaderText = "(Xi-X)^2Fi";
+                    columnName[7].HeaderText = $"(Xi-{(char)88}{(char)772}){(char)178}Fi";
 
                     columnName[8].MappingName = "Cubix_Xi_minus_Avg";
-                    columnName[8].HeaderText = "(Xi-X)^3Fi";
+                    columnName[8].HeaderText = $"(Xi-{(char)88}{(char)772}){(char)179}Fi";
 
                     columnName[9].MappingName = "Quadric_Xi_minus_Avg";
-                    columnName[9].HeaderText = "(Xi-X)^4Fi";
+                    columnName[9].HeaderText = $"(Xi-{(char)88}{(char)772}){(char)8308}Fi";
                     #endregion
                 }
             }
@@ -186,28 +186,28 @@ namespace PocketStatistician
                 columnName[2].HeaderText = "Yi";
 
                 columnName[3].MappingName = "Xi_squared";
-                columnName[3].HeaderText = "Xi^2";
+                columnName[3].HeaderText = $"Xi{(char)178}";
 
                 columnName[4].MappingName = "XiYi";
                 columnName[4].HeaderText = "XiYi";
 
                 columnName[5].MappingName = "Xi_m_Xavg_x_Yi_m_YAvg";
-                columnName[5].HeaderText = "(Xi-X)(Yi-Y)";
+                columnName[5].HeaderText = $"(Xi-{(char)88}{(char)772})(Yi-{(char)562})";
 
                 columnName[6].MappingName = "Xi_m_X_Avg_Squared";
-                columnName[6].HeaderText = "(Xi-X)^2";
+                columnName[6].HeaderText = $"(Xi-{(char)88}{(char)772}){(char)178}";
 
                 columnName[7].MappingName = "Yi_m_Y_Avg_Squared";
-                columnName[7].HeaderText = "(Yi-Y)^2";
+                columnName[7].HeaderText = $"(Yi-{(char)562}){(char)178}";
 
                 columnName[8].MappingName = "Y_lineal";
-                columnName[8].HeaderText = "Y^";
+                columnName[8].HeaderText = $"{(char)374}";
 
                 columnName[9].MappingName = "Yi_m_Lineal_Yi_Squared";
-                columnName[9].HeaderText = "(Yi-Y^)^2";
+                columnName[9].HeaderText = $"(Yi-{(char)374}){(char)178}";
 
                 columnName[10].MappingName = "Lineal_Yi_m_Y_Avg_Squared";
-                columnName[10].HeaderText = "(Y^-Y)^2";
+                columnName[10].HeaderText = $"({(char)374}-{(char)562}){(char)178}";
                 #endregion
             }
 
