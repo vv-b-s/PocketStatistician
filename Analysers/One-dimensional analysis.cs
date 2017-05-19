@@ -223,8 +223,8 @@ namespace Analizers
                     #endregion
 
                     #region legs
-                    TableData[lines - 1, 0] = "-";
-                    TableData[lines - 1, 1] = "Total";
+                    TableData[lines - 1, 0] = $"{(char)931}";
+                    TableData[lines - 1, 1] = "-";
                     TableData[lines - 1, 2] = $"-";
                     TableData[lines - 1, 3] = $"{fi_Sum}";
                     TableData[lines - 1, 4] = $"{xIfI_Sum}";
@@ -283,7 +283,7 @@ namespace Analizers
                     #endregion
 
                     #region legs
-                    TableData[lines - 1, 0] = "{(char)931}";
+                    TableData[lines - 1, 0] = $"{(char)931}";
                     TableData[lines - 1, 1] = $"-";
                     TableData[lines - 1, 2] = $"{fi_Sum}";
                     TableData[lines - 1, 3] = $"{xIfI_Sum}";

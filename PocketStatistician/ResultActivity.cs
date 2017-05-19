@@ -108,19 +108,19 @@ namespace PocketStatistician
                     columnName[5].HeaderText = "C";
 
                     columnName[6].MappingName = "Xi_minus_Avg";
-                    columnName[6].HeaderText = "Xi-X";
+                    columnName[6].HeaderText = $"Xi-{(char)88}{(char)772}";
 
                     columnName[7].MappingName = "Module_Xi_minus_Avg";
-                    columnName[7].HeaderText = "|Xi-X|";
+                    columnName[7].HeaderText = $"|Xi-{(char)88}{(char)772}|";
 
                     columnName[8].MappingName = "Squared_Xi_minus_Avg";
-                    columnName[8].HeaderText = "(Xi-X)^2Fi";
+                    columnName[8].HeaderText = $"(Xi-{(char)88}{(char)772}){(char)178}Fi";
 
                     columnName[9].MappingName = "Cubix_Xi_minus_Avg";
-                    columnName[9].HeaderText = "(Xi-X)^3Fi";
+                    columnName[9].HeaderText = $"(Xi-{(char)88}{(char)772}){(char)179}Fi";
 
                     columnName[10].MappingName = "Quadric_Xi_minus_Avg";
-                    columnName[10].HeaderText = "(Xi-X)^4Fi";
+                    columnName[10].HeaderText = $"(Xi-{(char)88}{(char)772}){(char)8308}Fi";
                     #endregion
                 }
                 else
@@ -295,7 +295,7 @@ namespace PocketStatistician
         }
         #endregion
 
-#region Excel Exportation
+        #region Excel Exportation
         private void ExportToExcel()    // https://help.syncfusion.com/xamarin-android/sfdatagrid/exporting
         {
             DataGridExcelExportingController excelExport = new DataGridExcelExportingController();
