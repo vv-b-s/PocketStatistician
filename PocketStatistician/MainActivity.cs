@@ -22,11 +22,12 @@ namespace PocketStatistician
         public enum AnalysisType { OneDA, RegrCorA };
         public static bool hasIntervals;
         public static int SpinnerPos = 0;
+        public static Context MainActivityContext;
         #endregion
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-
+            MainActivityContext = this;
             // Set our view from the "main" layout resource
             SetContentView (Resource.Layout.Main);
 

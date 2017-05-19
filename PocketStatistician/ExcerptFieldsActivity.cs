@@ -127,6 +127,8 @@ namespace PocketStatistician
 
                      var intent = new Intent(this, typeof(ResultActivity));
                      StartActivity(intent);
+                     ((Activity)MainActivity.MainActivityContext).Finish();
+                     Finish();
                  } 
              };
             #endregion

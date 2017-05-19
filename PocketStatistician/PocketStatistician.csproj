@@ -50,6 +50,9 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Mono.Android" />
     <Reference Include="mscorlib" />
+    <Reference Include="Syncfusion.Compression.Portable">
+      <HintPath>..\..\..\Programs\Syncfusion\15.1.0.33\Xamarin\lib\pcl\Syncfusion.Compression.Portable.dll</HintPath>
+    </Reference>
     <Reference Include="Syncfusion.GridCommon.Portable">
       <HintPath>..\..\..\Programs\Syncfusion\15.1.0.33\Xamarin\lib\pcl\Syncfusion.GridCommon.Portable.dll</HintPath>
     </Reference>
@@ -61,6 +64,12 @@
     </Reference>
     <Reference Include="Syncfusion.SfDataGrid.Android">
       <HintPath>..\..\..\Programs\Syncfusion\15.1.0.33\Xamarin\lib\android\Syncfusion.SfDataGrid.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfGridConverter.Android">
+      <HintPath>..\..\..\Programs\Syncfusion\15.1.0.33\Xamarin\lib\android\Syncfusion.SfGridConverter.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.XlsIO.Portable">
+      <HintPath>..\..\..\Programs\Syncfusion\15.1.0.33\Xamarin\lib\pcl\Syncfusion.XlsIO.Portable.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -132,13 +141,19 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\menu\" />
+    <AndroidResource Include="Resources\drawable\reset_icon.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Analysers\Analyzers.csproj">
       <Project>{ad7f58f5-58a2-4c0b-afe6-bfd68e2040c0}</Project>
       <Name>Analyzers</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\menu\ActionBarIcons.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\exp_to_excel.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

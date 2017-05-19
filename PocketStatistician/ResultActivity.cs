@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 
 using Android.App;
 using Android.Content;
@@ -14,10 +15,14 @@ using Android.Graphics;
 using Syncfusion.Linq;                              // https://components.xamarin.com/gettingstarted/syncfusionessentialstudio
 using Syncfusion.SfDataGrid;
 using Syncfusion.GridCommon;
+using Syncfusion.SfGridConverter.Android;
+using Syncfusion.SfDataGrid.Exporting;
+using Syncfusion.Compression;
+using Syncfusion.XlsIO;
 using Com.Syncfusion.Charts;
 
 using Analizers;
-
+using Java.IO;
 
 namespace PocketStatistician
 {
@@ -264,6 +269,95 @@ namespace PocketStatistician
             layout.AddView(Graph);
 
         }
+
+        #endregion
+
+        #region Modify Action Bar Menu Buttons
+        public override bool OnCreateOptionsMenu(IMenu menu)                    //https://www.youtube.com/watch?v=5MSKuVO2hV4
+        {
+            MenuInflater.Inflate(Resource.Menu.ActionBarIcons, menu);
+            return true;
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Resource.Id.exportToExcel:
+                    ExportToExcel();
+                    return true;
+                case Resource.Id.resetBT:
+                    StartActivity(new Intent(this, typeof(MainActivity)));
+                    Finish();
+                    return true;
+                default: return false;
+            }
+        }
+        #endregion
+
+#region Excel Exportation
+        private void ExportToExcel()    // https://help.syncfusion.com/xamarin-android/sfdatagrid/exporting
+        {
+            DataGridExcelExportingController excelExport = new DataGridExcelExportingController();
+            var excelEngine = excelExport.ExportToExcel(TableData, new DataGridExcelExportingOption()
+            {
+                ExportRowHeight    = false,
+                ExportColumnWidth  = false,
+                DefaultColumnWidth = 100,
+                DefaultRowHeight   = 60
+            });
+            var workbook = excelEngine.Excel.Workbooks[0];
+            MemoryStream stream = new MemoryStream();
+            workbook.SaveAs(stream);
+            workbook.Close();
+            excelEngine.Dispose();
+            Save($"{(MainActivity.SpinnerPos == (int)MainActivity.AnalysisType.OneDA ? "OneDA" : "RegrCorA")}_Table",
+                "application/msexcel", stream, TableData.Context);
+        }
+
+        public void Save(string fileName, String contentType, MemoryStream stream,Context context)
+        {
+            string exception = string.Empty;
+            string root = null;
+            if (Android.OS.Environment.IsExternalStorageEmulated)
+                root = Android.OS.Environment.ExternalStorageDirectory.ToString();
+            else
+                root = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments);
+
+            Java.IO.File myDir = new Java.IO.File(root + "/PocketStatistician");
+            myDir.Mkdir();
+
+            Java.IO.File file = new Java.IO.File(myDir, fileName+".xlsx");
+
+            int fileIndent = 1; 
+            while(file.Exists())
+            {
+                string newFileName = string.Concat(fileName, fileIndent, ".xlsx");
+                file = new Java.IO.File(myDir, newFileName);
+                fileIndent++;
+            }
+
+            try
+            {
+                FileOutputStream outs = new FileOutputStream(file, false);
+                outs.Write(stream.ToArray());
+
+                outs.Flush();
+                outs.Close();
+            }
+            catch(Exception e)
+            {
+                exception = e.ToString();
+            }
+            if(file.Exists()&&contentType!="application/html")
+            {
+                Android.Net.Uri path = Android.Net.Uri.FromFile(file);
+                string extension = Android.Webkit.MimeTypeMap.GetFileExtensionFromUrl(Android.Net.Uri.FromFile(file).ToString());
+                string mimeType = Android.Webkit.MimeTypeMap.Singleton.GetMimeTypeFromExtension(exception);
+                Toast.MakeText(this, "Table successfully exported!", ToastLength.Short).Show();
+            }
+        }
+
 
         #endregion
     }
