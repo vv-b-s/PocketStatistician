@@ -15,12 +15,12 @@ namespace PocketStatistician
     [Activity(Label = "Pocket Statistician")]
     public class ExcerptFieldsActivity : Activity
     {
-        public static int NumberOfFields;
-        public static double[][] intervals;
-        public static double[] Xi, Yi;
-        private bool continuable = true;
-        private EditText[] Field;
-        private Button ProcDataBT;
+        public static int           NumberOfFields;
+        public static double[][]         intervals;
+        public static double[]              Xi, Yi;
+        private bool continuable    =         true;
+        private EditText[]                   Field;
+        private Button                  ProcDataBT;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -46,8 +46,9 @@ namespace PocketStatistician
                     field[i].Hint = $"{i + 1}. Xi Yi";
             }
             Field = field;
+
             var procDataBT = FindViewById<Button>(Resource.Id.procDataBT);
-            ProcDataBT = procDataBT;
+            ProcDataBT     = procDataBT;
             #endregion
 
             #region Events
@@ -63,18 +64,18 @@ namespace PocketStatistician
             string[] split = null;
             if (MainActivity.hasIntervals && MainActivity.SpinnerPos == (int)MainActivity.AnalysisType.OneDA)                       // This is used only for the One-Dimention Analysis. Other analysis work with two parameters.
             {
-                intervals = new double[2][];
+                intervals    = new double[2][];
                 intervals[0] = new double[Field.Length];
                 intervals[1] = new double[Field.Length];
 
                 split = new string[3];
-                Yi = new double[Field.Length];
+                Yi    = new double[Field.Length];
             }
             else
             {
                 split = new string[2];
-                Xi = new double[Field.Length];
-                Yi = new double[Field.Length];
+                Xi    = new double[Field.Length];
+                Yi    = new double[Field.Length];
             }
 
             for (int i = 0; i < Field.Length; i++)
@@ -86,9 +87,9 @@ namespace PocketStatistician
                         break;
 
                     string[] twoStrings = Field[i].Text.Split();
-                    split[0] = twoStrings[0].Split('~')[0];
-                    split[1] = twoStrings[0].Split('~')[1];
-                    split[2] = twoStrings[1];
+                    split[0]            = twoStrings[0].Split('~')[0];
+                    split[1]            = twoStrings[0].Split('~')[1];
+                    split[2]            = twoStrings[1];
 
                     continuable = double.TryParse(split[0], out intervals[0][i]) &&
                     double.TryParse(split[1], out intervals[1][i]) &&

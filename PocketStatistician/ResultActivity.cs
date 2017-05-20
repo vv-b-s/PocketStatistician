@@ -29,10 +29,10 @@ namespace PocketStatistician
     [Activity(Label = "Pocket Statistician")]
     public class ResultActivity : Activity
     {
-        private static SfDataGrid TableData;
-        private static SfChart Graph;
-        public static One_dim_analysis ODA;
-        public static Regression_analysis RA;
+        private static SfDataGrid     TableData;
+        private static SfChart            Graph;
+        public  static One_dim_analysis     ODA;
+        public  static Regression_analysis   RA;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -41,7 +41,7 @@ namespace PocketStatistician
             SetContentView(Resource.Layout.ResultLayout);
 
             FragmentTransaction transaction = FragmentManager.BeginTransaction();
-            SlidingTabsFragment fragment = new SlidingTabsFragment();
+            SlidingTabsFragment fragment    =          new SlidingTabsFragment();
             transaction.Replace(Resource.Id.sample_content_fragment, fragment);
             transaction.Commit();
         }
@@ -50,7 +50,7 @@ namespace PocketStatistician
         public static void ModifyDataTab(LinearLayout layout)
         {
             #region Modify the scrollview
-            var scrollView = new ScrollView(layout.Context);
+            var scrollView  = new ScrollView(layout.Context);
             TextView output = new TextView(layout.Context);
 
             if (MainActivity.SpinnerPos == (int)MainActivity.AnalysisType.OneDA)
@@ -66,10 +66,10 @@ namespace PocketStatistician
 
         public static void ModifyTableTab(LinearLayout layout)          //https://help.syncfusion.com/xamarin-android/sfdatagrid/getting-started
         {
-            TableData = new SfDataGrid(layout.Context);
-            TableData.AllowSorting = true;
-            TableData.GridStyle.AlternatingRowColor = Color.Aqua;
-            TableData.AutoGenerateColumns = false;
+            TableData                                   = new SfDataGrid(layout.Context);
+            TableData.AllowSorting                      =                           true;
+            TableData.GridStyle.AlternatingRowColor     =                     Color.Aqua;
+            TableData.AutoGenerateColumns               =                          false;
 
             ODA_GridRepository oda_viewModel;
             RA_GridRepository ra_viewModel;
@@ -90,37 +90,37 @@ namespace PocketStatistician
                     }
 
                     columnName[0].MappingName = "Nm";
-                    columnName[0].HeaderText = $"{(char)8470}";
+                    columnName[0].HeaderText  = $"{(char)8470}";
 
                     columnName[1].MappingName = "Intervals";
-                    columnName[1].HeaderText = "X' ~ X\"";
+                    columnName[1].HeaderText  =  "X' ~ X\"";
 
                     columnName[2].MappingName = "Xi";
-                    columnName[2].HeaderText = "Xi";
+                    columnName[2].HeaderText  = "Xi";
 
                     columnName[3].MappingName = "Fi";
-                    columnName[3].HeaderText = "Fi";
+                    columnName[3].HeaderText  = "Fi";
 
                     columnName[4].MappingName = "XiFi";
-                    columnName[4].HeaderText = "XiFi";
+                    columnName[4].HeaderText  = "XiFi";
 
                     columnName[5].MappingName = "ComulatFreg";
-                    columnName[5].HeaderText = "C";
+                    columnName[5].HeaderText  =  "C";
 
                     columnName[6].MappingName = "Xi_minus_Avg";
-                    columnName[6].HeaderText = $"Xi-{(char)88}{(char)772}";
+                    columnName[6].HeaderText  = $"Xi-{(char)88}{(char)772}";
 
                     columnName[7].MappingName = "Module_Xi_minus_Avg";
-                    columnName[7].HeaderText = $"|Xi-{(char)88}{(char)772}|";
+                    columnName[7].HeaderText  = $"|Xi-{(char)88}{(char)772}|";
 
                     columnName[8].MappingName = "Squared_Xi_minus_Avg";
-                    columnName[8].HeaderText = $"(Xi-{(char)88}{(char)772}){(char)178}Fi";
+                    columnName[8].HeaderText  = $"(Xi-{(char)88}{(char)772}){(char)178}Fi";
 
                     columnName[9].MappingName = "Cubix_Xi_minus_Avg";
-                    columnName[9].HeaderText = $"(Xi-{(char)88}{(char)772}){(char)179}Fi";
+                    columnName[9].HeaderText  = $"(Xi-{(char)88}{(char)772}){(char)179}Fi";
 
                     columnName[10].MappingName = "Quadric_Xi_minus_Avg";
-                    columnName[10].HeaderText = $"(Xi-{(char)88}{(char)772}){(char)8308}Fi";
+                    columnName[10].HeaderText  = $"(Xi-{(char)88}{(char)772}){(char)8308}Fi";
                     #endregion
                 }
                 else
@@ -136,34 +136,34 @@ namespace PocketStatistician
                     }
 
                     columnName[0].MappingName = "Nm";
-                    columnName[0].HeaderText = $"{(char)8470}";
+                    columnName[0].HeaderText  = $"{(char)8470}";
 
                     columnName[1].MappingName = "Xi";
-                    columnName[1].HeaderText = "Xi";
+                    columnName[1].HeaderText  = "Xi";
 
                     columnName[2].MappingName = "Fi";
-                    columnName[2].HeaderText = "Fi";
+                    columnName[2].HeaderText  = "Fi";
 
                     columnName[3].MappingName = "XiFi";
-                    columnName[3].HeaderText = "XiFi";
+                    columnName[3].HeaderText  = "XiFi";
 
                     columnName[4].MappingName = "ComulatFreg";
-                    columnName[4].HeaderText = "C";
+                    columnName[4].HeaderText  = "C";
 
                     columnName[5].MappingName = "Xi_minus_Avg";
-                    columnName[5].HeaderText = $"Xi-{(char)88}{(char)772}";
+                    columnName[5].HeaderText  = $"Xi-{(char)88}{(char)772}";
 
                     columnName[6].MappingName = "Module_Xi_minus_Avg";
-                    columnName[6].HeaderText = $"|Xi-{(char)88}{(char)772}|";
+                    columnName[6].HeaderText  = $"|Xi-{(char)88}{(char)772}|";
 
                     columnName[7].MappingName = "Squared_Xi_minus_Avg";
-                    columnName[7].HeaderText = $"(Xi-{(char)88}{(char)772}){(char)178}Fi";
+                    columnName[7].HeaderText  = $"(Xi-{(char)88}{(char)772}){(char)178}Fi";
 
                     columnName[8].MappingName = "Cubix_Xi_minus_Avg";
-                    columnName[8].HeaderText = $"(Xi-{(char)88}{(char)772}){(char)179}Fi";
+                    columnName[8].HeaderText  = $"(Xi-{(char)88}{(char)772}){(char)179}Fi";
 
                     columnName[9].MappingName = "Quadric_Xi_minus_Avg";
-                    columnName[9].HeaderText = $"(Xi-{(char)88}{(char)772}){(char)8308}Fi";
+                    columnName[9].HeaderText  = $"(Xi-{(char)88}{(char)772}){(char)8308}Fi";
                     #endregion
                 }
             }
@@ -185,34 +185,34 @@ namespace PocketStatistician
                 columnName[0].HeaderText = $"{(char)8470}";
 
                 columnName[1].MappingName = "Xi";
-                columnName[1].HeaderText = "Xi";
+                columnName[1].HeaderText  = "Xi";
 
                 columnName[2].MappingName = "Yi";
-                columnName[2].HeaderText = "Yi";
+                columnName[2].HeaderText  = "Yi";
 
                 columnName[3].MappingName = "Xi_squared";
-                columnName[3].HeaderText = $"Xi{(char)178}";
+                columnName[3].HeaderText  = $"Xi{(char)178}";
 
                 columnName[4].MappingName = "XiYi";
-                columnName[4].HeaderText = "XiYi";
+                columnName[4].HeaderText  = "XiYi";
 
                 columnName[5].MappingName = "Xi_m_Xavg_x_Yi_m_YAvg";
-                columnName[5].HeaderText = $"(Xi-{(char)88}{(char)772})(Yi-{(char)562})";
+                columnName[5].HeaderText  = $"(Xi-{(char)88}{(char)772})(Yi-{(char)562})";
 
                 columnName[6].MappingName = "Xi_m_X_Avg_Squared";
-                columnName[6].HeaderText = $"(Xi-{(char)88}{(char)772}){(char)178}";
+                columnName[6].HeaderText  = $"(Xi-{(char)88}{(char)772}){(char)178}";
 
                 columnName[7].MappingName = "Yi_m_Y_Avg_Squared";
-                columnName[7].HeaderText = $"(Yi-{(char)562}){(char)178}";
+                columnName[7].HeaderText  = $"(Yi-{(char)562}){(char)178}";
 
                 columnName[8].MappingName = "Y_lineal";
-                columnName[8].HeaderText = $"{(char)374}";
+                columnName[8].HeaderText  = $"{(char)374}";
 
                 columnName[9].MappingName = "Yi_m_Lineal_Yi_Squared";
-                columnName[9].HeaderText = $"(Yi-{(char)374}){(char)178}";
+                columnName[9].HeaderText  = $"(Yi-{(char)374}){(char)178}";
 
                 columnName[10].MappingName = "Lineal_Yi_m_Y_Avg_Squared";
-                columnName[10].HeaderText = $"({(char)374}-{(char)562}){(char)178}";
+                columnName[10].HeaderText  = $"({(char)374}-{(char)562}){(char)178}";
                 #endregion
             }
 
