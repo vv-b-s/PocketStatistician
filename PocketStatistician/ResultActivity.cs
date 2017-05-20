@@ -288,6 +288,12 @@ namespace PocketStatistician
                     return true;
                 case Resource.Id.resetBT:
                     StartActivity(new Intent(this, typeof(MainActivity)));
+                    if (TableData != null)
+                        TableData.Dispose();
+                    if(Graph!=null)
+                        Graph.Dispose();
+                    ODA = null;
+                    RA = null;
                     Finish();
                     return true;
                 default: return false;
